@@ -244,7 +244,7 @@ body{background:var(--color-bg);color:var(--color-fg);margin:0}
       <dt>Período</dt><dd>Escolha nos botões do topo. A comparação é sempre com o mesmo número de dias logo antes do período escolhido.</dd>
       <dt>Histórico</dt><dd>Desde o primeiro dia de cada campanha: fevereiro de 2026 em MG e março de 2026 no DF.</dd>
       <dt>Estados</dt><dd>DF reúne as contas VJA; MG reúne as contas G3989.</dd>
-      <dt>Atualização</dt><dd>Os dados são atualizados toda segunda-feira com a semana anterior.</dd>
+      <dt>Atualização</dt><dd>Os dados são atualizados todo dia útil pela manhã, com os resultados até o dia anterior.</dd>
     </dl>
   </details>
 </div>
@@ -612,7 +612,7 @@ dash.draw('cards-sem', (el) => {
     dash._set({diario: {status: 'ok', data: toObj(j.colunas_diario, j.diario)}, cards: {status: 'ok', data: toObj(j.colunas_cards, j.cards)}});
     document.querySelectorAll('[data-vja-load]').forEach((e) => { e.hidden = true; });
     const u = document.getElementById('vja-updated');
-    if (u && j.atualizado) u.textContent = 'Dados atualizados em ' + j.atualizado.split('-').reverse().join('/') + '. Atualização toda segunda-feira.';
+    if (u && j.atualizado) u.textContent = 'Dados atualizados em ' + j.atualizado.split('-').reverse().join('/') + '. Atualização todo dia útil pela manhã.';
   }).catch(() => {
     document.querySelectorAll('[data-vja-load]').forEach((e) => { e.textContent = 'Não foi possível carregar os dados. Recarregue a página.'; });
   });
