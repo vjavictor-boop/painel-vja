@@ -4,178 +4,161 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0c0d0f">
 <title>Painel Meta Ads VJA | CVC Master Franquia DF e MG</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
 <style>
-:root{--color-fg:#141a2e;--color-fg-muted:#5d6479;--color-bg:#f5f6fa;--color-panel:#ffffff;--color-border-line:#e3e6ee;--color-ok:#11804a;--color-bad:#c2362b;
-  --cds-text-secondary:#5d6479;--cds-chart-grid:#e9ebf2;--cds-chart-reference:#9aa1b3;--cds-surface-popover:#ffffff;--cds-border:#dfe2ea;--cds-shadow-popover:0 8px 24px rgba(16,24,48,.14)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--color-fg:#eef0f7;--color-fg-muted:#a3a9bb;--color-bg:#0e1220;--color-panel:#161b2c;--color-border-line:#262d42;--color-ok:#4cc38a;--color-bad:#ff7a6e;
-  --cds-text-secondary:#a3a9bb;--cds-chart-grid:#222a3d;--cds-chart-reference:#6b7389;--cds-surface-popover:#1c2235;--cds-border:#2c3449;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.5);color-scheme:dark}}
-:root[data-theme="dark"]{--color-fg:#eef0f7;--color-fg-muted:#a3a9bb;--color-bg:#0e1220;--color-panel:#161b2c;--color-border-line:#262d42;--color-ok:#4cc38a;--color-bad:#ff7a6e;
-  --cds-text-secondary:#a3a9bb;--cds-chart-grid:#222a3d;--cds-chart-reference:#6b7389;--cds-surface-popover:#1c2235;--cds-border:#2c3449;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.5);color-scheme:dark}
-body{background:var(--color-bg);color:var(--color-fg);margin:0}
-.vja-wrap{max-width:1180px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.vja-load{color:var(--color-fg-muted);font:600 14px "Manrope",system-ui,sans-serif;padding:24px 0}
-.vja-updated{color:var(--color-fg-muted);font-size:12px;margin:0}
+/* Layout: departures-board world (single dark theme by choice). Header strip, period row of square tiles, split-flap headline figures, one departures table per state (side by side on desktop), chart and cards boards. */
+:root{
+  --b-bg:#0c0d0f;        /* hall */
+  --b-board:#16181b;     /* board face */
+  --b-flap:#22252a;      /* flap tile */
+  --b-line:#2c3036;      /* rules */
+  --b-ink:#f1eee4;       /* board lettering */
+  --b-dim:#8d929b;       /* secondary */
+  --b-amber:#ffb21a;     /* Solari amber */
+  --b-ok:#46d38a;
+  --b-bad:#ff6a57;
+  --b-board-font:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --b-text:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark}
+body{background:var(--b-bg);color:var(--b-ink);margin:0}
+.bd-wrap{max-width:1200px;margin:0 auto;padding-block:18px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-family:var(--b-text);font-size:15px;line-height:1.5;font-feature-settings:"tnum" 1;display:flex;flex-direction:column;gap:28px}
+.bd-wrap :focus-visible{outline:2px solid var(--b-amber);outline-offset:2px}
+.bd-cap{font-family:var(--b-board-font);text-transform:uppercase;letter-spacing:.06em}
+.bd-load{color:var(--b-dim);font:600 14px var(--b-text)}
 
-/* Layout: boarding-pass hero with the period's leads as the headline number; period chips; DF and MG as two "airport code" columns (stacked on phones); chart and cards per store full width. */
-.vja{
-  --vja-blue:#06219A;
-  --vja-blue-2:#0B2DBF;
-  --vja-df:color-mix(in srgb,#1636D6 62%,var(--color-fg));
-  --vja-mg:color-mix(in srgb,#E09A00 84%,var(--color-fg));
-  --vja-display:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --vja-text:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --vja-xs:12px;--vja-sm:13.5px;--vja-md:15px;--vja-lg:19px;--vja-xl:26px;
-  display:flex;flex-direction:column;gap:36px;font-family:var(--vja-text);color:var(--color-fg);font-size:var(--vja-md);line-height:1.5;
-  font-feature-settings:"tnum" 1}
-.vja :focus-visible{outline:2px solid var(--vja-df);outline-offset:2px;border-radius:6px}
-.vja h1,.vja h2,.vja h3{font-family:var(--vja-display);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+/* Header strip */
+.bd-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--b-amber);padding-bottom:14px}
+.bd-brand{display:flex;align-items:center;gap:16px;min-width:0}
+.bd-logo{width:132px;max-width:40vw;height:auto;filter:brightness(0) invert(1);opacity:.95}
+.bd-title{margin:0;font-family:var(--b-board-font);font-weight:700;font-size:clamp(22px,5vw,30px);line-height:1;text-transform:uppercase;letter-spacing:.04em}
+.bd-title span{color:var(--b-amber)}
+.bd-upd{font-family:var(--b-board-font);font-size:15px;color:var(--b-dim);letter-spacing:.05em;text-transform:uppercase}
 
-/* Hero */
-.vja-pass{background:radial-gradient(120% 90% at 100% 0%,var(--vja-blue-2) 0%,var(--vja-blue) 55%);color:#fff;border-radius:22px;overflow:hidden}
-.vja-pass-main{padding:22px 24px 26px;display:flex;flex-direction:column;gap:20px}
-.vja-pass-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.vja-logo{display:block;width:148px;max-width:52%;height:auto;filter:brightness(0) invert(1)}
-.vja-chip-w{font-size:var(--vja-xs);font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);white-space:nowrap}
-.vja-title{margin:0;font-size:var(--vja-md);font-weight:600;font-family:var(--vja-text);letter-spacing:0;opacity:.82}
-.vja-big{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:-6px 0 0}
-.vja-big-n{font-family:var(--vja-display);font-weight:800;font-size:clamp(64px,17vw,112px);line-height:.92;letter-spacing:-.035em}
-.vja-big-l{font-family:var(--vja-display);font-weight:600;font-size:clamp(20px,4.6vw,28px);line-height:1.1;letter-spacing:-.01em}
-.vja-lede{margin:0;font-size:clamp(16px,3.9vw,19px);line-height:1.45;max-width:46ch;opacity:.92}
-.vja-lede b{font-weight:700;opacity:1}
-.vja-perf{position:relative;height:0;border-top:2px dashed rgba(255,255,255,.3);margin:0 20px}
-.vja-perf::before,.vja-perf::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--color-bg)}
-.vja-perf::before{left:-31px}
-.vja-perf::after{right:-31px}
-.vja-stub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px;padding:18px 24px 22px}
-.vja-stub-i{display:flex;flex-direction:column;gap:2px;min-width:0}
-.vja-stub-l{font-size:var(--vja-xs);font-weight:600;opacity:.7}
-.vja-split{grid-column:1/-1;display:flex;flex-direction:column;gap:8px;margin-top:14px}
-.vja-split-l{display:flex;justify-content:space-between;gap:12px;font-size:var(--vja-sm);font-weight:600}
-.vja-split-l b{font-family:var(--vja-display);font-weight:700;font-size:var(--vja-lg)}
-.vja-split-bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:rgba(255,255,255,.18);gap:2px}
-.vja-split-bar i{display:block;height:100%}
-.vja-split-bar i.df{background:#ffffff}
-.vja-split-bar i.mg{background:#FFC24A}
-.vja-split-k{display:inline-flex;align-items:center;gap:6px}
-.vja-split-k i{width:9px;height:9px;border-radius:50%;display:inline-block}
-.vja-stub-v{font-family:var(--vja-display);font-weight:700;font-size:clamp(20px,5vw,26px);letter-spacing:-.015em;overflow-wrap:anywhere}
-
-/* Period chips */
-.vja-filter{display:flex;flex-direction:column;gap:10px;margin-top:-14px;min-width:0}
-.vja-chips{display:flex;gap:8px;flex-wrap:wrap;padding:2px 0}
-.vja-chips::-webkit-scrollbar{display:none}
-.vja-chipb{flex:none;font:600 var(--vja-sm)/1 var(--vja-text);color:var(--color-fg);background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:999px;padding:0 16px;min-height:44px;cursor:pointer;white-space:nowrap}
-.vja-chipb:hover{border-color:var(--color-fg-muted)}
-.vja-chipb[aria-pressed="true"]{background:var(--vja-blue);border-color:var(--vja-blue);color:#fff}
-.vja-custom{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:var(--vja-sm);color:var(--color-fg-muted)}
+/* Period row */
+.bd-period{display:flex;flex-direction:column;gap:10px}
+.bd-row-l{font-family:var(--b-board-font);font-size:14px;color:var(--b-dim);letter-spacing:.12em;text-transform:uppercase}
+.bd-tiles{display:flex;flex-wrap:wrap;gap:4px}
+.vja-chipb{font:600 16px/1 var(--b-board-font);text-transform:uppercase;letter-spacing:.06em;color:var(--b-dim);background:var(--b-flap);border:0;border-radius:3px;min-height:44px;padding:0 14px;cursor:pointer;position:relative}
+.vja-chipb::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.vja-chipb:hover{color:var(--b-ink)}
+.vja-chipb[aria-pressed="true"]{background:var(--b-amber);color:#16120a}
+.vja-custom{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--b-board-font);text-transform:uppercase;letter-spacing:.06em;color:var(--b-dim)}
 .vja-custom[hidden]{display:none}
-.vja-custom input{min-height:44px;font:500 var(--vja-sm) var(--vja-text);color:var(--color-fg);background-color:var(--color-panel);border:1px solid var(--color-border-line);border-radius:10px;padding:8px 10px;min-width:0}
+.vja-custom input{font:500 15px var(--b-text);color:var(--b-ink);background-color:var(--b-flap);border:1px solid var(--b-line);border-radius:3px;padding:8px 10px;min-height:44px;color-scheme:dark}
 
-/* States */
-.vja-states{display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
-@media (min-width:1040px){.vja-states{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
-.vja-sec{display:flex;flex-direction:column;gap:16px;min-width:0}
-.vja-st-h{display:flex;align-items:center;gap:14px;margin:0}
-.vja-code{font-family:var(--vja-display);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.03em}
-.vja-code.df{color:var(--vja-df)}
-.vja-code.mg{color:var(--vja-mg)}
-.vja-st-t{display:flex;flex-direction:column;gap:1px}
-.vja-st-n{font-family:var(--vja-display);font-weight:700;font-size:var(--vja-lg);line-height:1.2}
-.vja-st-s{font-size:var(--vja-xs);color:var(--color-fg-muted);font-weight:500}
-.vja-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--color-border-line);border:1px solid var(--color-border-line);border-radius:16px;overflow:hidden}
-.vja-m{background:var(--color-panel);padding:15px 16px 14px;display:flex;flex-direction:column;gap:3px;min-width:0}
-.vja-m-l{font-size:var(--vja-xs);font-weight:600;color:var(--color-fg-muted)}
-.vja-m-v{font-family:var(--vja-display);font-weight:700;font-size:clamp(24px,6vw,32px);line-height:1.08;letter-spacing:-.02em;min-height:1.08em;overflow-wrap:anywhere}
-.vja-delta{font-size:var(--vja-xs);font-weight:600;color:var(--color-fg-muted);min-height:1.4em}
-.vja-delta.good{color:var(--color-ok)}
-.vja-delta.bad{color:var(--color-bad)}
+/* Headline board */
+.bd-board{background:var(--b-board);border:1px solid var(--b-line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.bd-head{display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:start;gap:22px 40px}
+@media (max-width:720px){.bd-head{grid-template-columns:minmax(0,1fr)}}
+.bd-fig{display:flex;flex-direction:column;gap:8px;min-width:0}
+.bd-fig-l{font-family:var(--b-board-font);font-size:14px;color:var(--b-dim);letter-spacing:.12em;text-transform:uppercase}
+.bd-flaps{display:flex;gap:3px;flex-wrap:wrap}
+.bd-f{position:relative;display:inline-grid;place-items:center;min-width:.68em;padding:0 .08em;height:1.22em;background:var(--b-flap);border-radius:3px;font-family:var(--b-board-font);font-weight:600;font-size:clamp(34px,8.6vw,54px);line-height:1;color:var(--b-ink);overflow:hidden}
+.bd-f::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--b-bg);opacity:.85}
+.bd-f.sep{background:transparent;min-width:.3em;padding:0}
+.bd-f.sep::after{display:none}
+.bd-fig.main .bd-f{color:var(--b-amber)}
+.bd-f.flip{animation:bdflip .42s var(--d,0ms) both}
+@keyframes bdflip{0%{transform:rotateX(90deg);filter:brightness(.5)}100%{transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.bd-f.flip{animation:none}}
+.bd-lede{margin:0;font-size:16px;color:var(--b-ink);max-width:70ch}
+.bd-lede b{color:var(--b-amber);font-weight:600}
+.bd-split{display:flex;flex-direction:column;gap:6px}
+.bd-split-l{display:flex;justify-content:space-between;font-family:var(--b-board-font);letter-spacing:.06em;text-transform:uppercase;font-size:15px;color:var(--b-dim)}
+.bd-split-l b{color:var(--b-ink);font-weight:600;margin-left:6px}
+.bd-split-bar{display:flex;height:8px;gap:3px}
+.bd-split-bar i{display:block;height:100%;border-radius:1px}
+.bd-split-bar i.df{background:var(--b-ink)}
+.bd-split-bar i.mg{background:var(--b-amber)}
 
-/* Ranking */
-.vja-rank{width:100%;border-collapse:collapse}
-.vja-rank th{font-size:var(--vja-xs);font-weight:600;color:var(--color-fg-muted);text-align:right;padding:0 8px 8px;white-space:nowrap}
-.vja-rank th:first-child{text-align:left;padding-left:0}
-.vja-rank td{padding:12px 8px;text-align:right;border-top:1px solid var(--color-border-line);white-space:nowrap;vertical-align:middle;font-weight:600}
-.vja-rank td:first-child{text-align:left;white-space:normal;padding-left:0;width:100%;font-weight:400}
-.vja-rank td:last-child,.vja-rank th:last-child{padding-right:0}
-.vja-who{display:grid;grid-template-columns:1.7em minmax(0,1fr);column-gap:8px;row-gap:6px;align-items:center}
-.vja-pos{font-family:var(--vja-display);font-weight:700;font-size:var(--vja-lg);color:var(--color-fg-muted);grid-row:span 2;align-self:start;line-height:1.25}
-.vja-name{font-weight:700}
-.vja-meter{height:5px;border-radius:3px;background:var(--color-border-line);overflow:hidden;max-width:240px}
-.vja-meter i{display:block;height:100%;border-radius:3px}
-.vja-tag{display:inline-block;font-size:11px;font-weight:700;margin-left:8px;padding:1px 8px;border-radius:999px;white-space:nowrap;vertical-align:1px}
-.vja-tag.good{color:var(--color-ok);background:color-mix(in srgb,var(--color-ok) 12%,transparent)}
-.vja-tag.bad{color:var(--color-bad);background:color-mix(in srgb,var(--color-bad) 12%,transparent)}
-@media (max-width:520px){.vja-hide-sm{display:none}}
+/* State departure boards */
+.bd-states{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media (min-width:1060px){.bd-states{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bd-st-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0}
+.bd-st-n{font-family:var(--b-board-font);font-weight:700;font-size:28px;letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.bd-st-n span{display:inline-block;background:var(--b-amber);color:#16120a;padding:2px 8px;border-radius:3px;margin-right:10px}
+.bd-st-n.mg span{background:var(--b-ink)}
+.bd-st-s{font-family:var(--b-board-font);color:var(--b-dim);letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+.bd-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--b-line);border-bottom:1px solid var(--b-line)}
+@media (max-width:560px){.bd-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bd-k{padding:12px 10px 12px 0;display:flex;flex-direction:column;gap:2px;min-width:0}
+.bd-k-l{font-family:var(--b-board-font);font-size:13px;color:var(--b-dim);letter-spacing:.1em;text-transform:uppercase}
+.bd-k-v{font-family:var(--b-board-font);font-weight:600;font-size:clamp(24px,5.4vw,30px);line-height:1.05;white-space:nowrap}
+@media (min-width:1060px){.bd-states .bd-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bd-short{display:none}
+@media (max-width:560px){.bd-long{display:none}.bd-short{display:inline}}
+.vja-delta{font-size:13px;color:var(--b-dim);min-height:1.4em}
+.vja-delta.good{color:var(--b-ok)}
+.vja-delta.bad{color:var(--b-bad)}
+.bd-tbl-w{overflow-x:auto}
+.bd-tbl{width:100%;border-collapse:collapse;font-family:var(--b-board-font);text-transform:uppercase;letter-spacing:.05em}
+.bd-tbl th{font-size:13px;font-weight:500;color:var(--b-dim);text-align:right;padding:8px 8px;letter-spacing:.12em;white-space:nowrap;border-bottom:1px solid var(--b-line)}
+.bd-tbl th:nth-child(-n+2){text-align:left}
+.bd-tbl td{font-size:19px;font-weight:600;padding:9px 8px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--b-line)}
+.bd-tbl tbody tr:nth-child(odd) td{background:rgba(255,255,255,.025)}
+.bd-tbl td.gate{color:var(--b-amber);text-align:left;width:2.4em}
+.bd-tbl td.dest{text-align:left;white-space:normal;width:100%;color:var(--b-ink)}
+.bd-tbl td.dest small{display:block;font-size:13px;color:var(--b-dim);letter-spacing:.08em;font-weight:500}
+.bd-stat{display:inline-block;font-size:13px;letter-spacing:.08em;padding:3px 7px;border-radius:2px;font-weight:700}
+.bd-stat.good{background:rgba(70,211,138,.14);color:var(--b-ok)}
+.bd-stat.bad{background:rgba(255,106,87,.14);color:var(--b-bad)}
+.bd-stat.mid{background:rgba(255,255,255,.06);color:var(--b-dim)}
+@media (max-width:560px){.bd-hide-sm{display:none}.bd-tbl td{font-size:16px;padding:9px 4px}.bd-tbl th{padding:8px 4px;font-size:12px}.bd-tbl td.gate{width:1.8em}.bd-stat{font-size:11px;padding:2px 4px}.bd-board{padding:16px 14px}}
 
-/* Chart */
-.vja-sec-h{margin:0;font-size:var(--vja-xl);line-height:1.15}
-.vja-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:var(--vja-sm);font-weight:600;color:var(--color-fg-muted)}
-.vja-legend span{display:inline-flex;align-items:center;gap:7px}
-.vja-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
-.vja-dot.df{background:var(--vja-df)}
-.vja-dot.mg{background:var(--vja-mg)}
+/* Chart + cards */
+.bd-sec-h{margin:0;font-family:var(--b-board-font);font-weight:700;font-size:24px;letter-spacing:.05em;text-transform:uppercase}
+.bd-legend{display:flex;gap:18px;font-family:var(--b-board-font);letter-spacing:.06em;text-transform:uppercase;font-size:14px;color:var(--b-dim)}
+.bd-legend span{display:inline-flex;align-items:center;gap:7px}
+.bd-sw{width:14px;height:3px;display:inline-block}
+.bd-sw.df{background:var(--b-ink)}
+.bd-sw.mg{background:var(--b-amber)}
 .vja-chart{position:relative;min-height:260px}
 .vja-chart svg{display:block;touch-action:pan-y}
-.vja-axis text{fill:var(--cds-text-secondary);font-size:12px;font-family:var(--vja-text);font-weight:500}
-.vja-tip{position:absolute;top:0;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:12px;padding:9px 12px;font-size:var(--vja-sm);white-space:nowrap;display:flex;flex-direction:column;gap:3px}
-.vja-tip-d{color:var(--cds-text-secondary);font-size:var(--vja-xs);font-weight:600}
-.vja-tip-r{display:flex;align-items:center;gap:7px;font-weight:600}
-
-/* Cards per store */
-.vja-cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px}
-.vja-cl{border:1px solid var(--color-border-line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--color-panel)}
-.vja-cl-h{margin:0;font-size:var(--vja-md);display:flex;align-items:center;gap:8px}
-.vja-bars{display:flex;flex-direction:column;gap:10px}
-.vja-bar{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr) auto;align-items:center;gap:10px;font-size:var(--vja-sm)}
-.vja-bar-n{overflow-wrap:anywhere;font-weight:500}
-.vja-bar-t{height:8px;border-radius:4px;background:var(--color-border-line);overflow:hidden}
-.vja-bar-f{height:100%;border-radius:4px}
-.vja-bar-v{min-width:3.5em;text-align:right;font-weight:700}
-.vja-semd summary{cursor:pointer;font-size:var(--vja-sm);font-weight:600;color:var(--color-fg-muted);min-height:44px;display:flex;align-items:center}
-.vja-sem{margin:0;font-size:var(--vja-sm);color:var(--color-fg-muted);line-height:1.6;max-width:72ch}
-.vja-sem b{font-weight:700;color:var(--color-fg)}
-.vja-note{color:var(--color-fg-muted);font-size:var(--vja-sm);max-width:68ch;margin:0;line-height:1.55}
-
-.vja-foot{border-top:1px solid var(--color-border-line);padding-top:16px}
-.vja-foot summary{cursor:pointer;color:var(--color-fg-muted);font-size:var(--vja-sm);font-weight:600}
-.vja-foot dl{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:8px 16px;font-size:var(--vja-sm);margin:14px 0 0;max-width:72ch}
-.vja-foot dt{font-weight:700}
-.vja-foot dd{margin:0;color:var(--color-fg-muted)}
-[data-dash-source-state=refreshing]{opacity:.5}
-@media (prefers-reduced-motion:no-preference){.vja-chipb{transition:background-color .15s,border-color .15s,color .15s}}
+.vja-axis text{fill:var(--b-dim);font-size:13px;font-family:var(--b-board-font);letter-spacing:.04em}
+.vja-tip{position:absolute;top:0;pointer-events:none;background:#000;border:1px solid var(--b-amber);border-radius:3px;padding:8px 11px;font-family:var(--b-board-font);text-transform:uppercase;letter-spacing:.06em;font-size:15px;white-space:nowrap;display:flex;flex-direction:column;gap:2px}
+.vja-tip-d{color:var(--b-amber)}
+.vja-tip-r{display:flex;align-items:center;gap:7px}
+.bd-note{color:var(--b-dim);font-size:13.5px;max-width:70ch;margin:0}
+.vja-cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.vja-cl{border-top:2px solid var(--b-amber);padding-top:10px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.vja-cl-h{margin:0;font-family:var(--b-board-font);font-size:18px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.vja-bars{display:flex;flex-direction:column}
+.vja-bar{display:grid;grid-template-columns:minmax(0,1fr) 34% auto;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--b-line);font-family:var(--b-board-font);text-transform:uppercase;letter-spacing:.05em;font-size:17px}
+.vja-bar-n{overflow-wrap:anywhere}
+.vja-bar-t{height:6px;background:var(--b-flap)}
+.vja-bar-f{height:100%}
+.vja-bar-v{min-width:3.5em;text-align:right;font-weight:600}
+.bd-semd summary{cursor:pointer;font-family:var(--b-board-font);letter-spacing:.08em;text-transform:uppercase;color:var(--b-dim);min-height:44px;display:flex;align-items:center}
+.vja-sem{margin:0;font-size:13.5px;color:var(--b-dim);max-width:72ch}
+.vja-sem b{color:var(--b-ink)}
+.bd-foot{border-top:1px solid var(--b-line);padding-top:14px}
+.bd-foot summary{cursor:pointer;font-family:var(--b-board-font);letter-spacing:.08em;text-transform:uppercase;color:var(--b-dim)}
+.bd-foot dl{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:8px 16px;font-size:13.5px;margin:14px 0 0;max-width:72ch}
+.bd-foot dt{font-family:var(--b-board-font);letter-spacing:.06em;text-transform:uppercase;color:var(--b-ink)}
+.bd-foot dd{margin:0;color:var(--b-dim)}
+.bd-upd2{color:var(--b-dim);font-size:13px;margin:0}
 </style>
+
 </head>
 <body>
-<div class="vja-wrap">
-<p class="vja-load" data-vja-load>Carregando dados…</p>
-<div class="vja" lang="pt-BR">
-  <header class="vja-pass" id="topo">
-    <div class="vja-pass-main">
-      <div class="vja-pass-top">
-        <img class="vja-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABkCAYAAAA8AQ3AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDEwLjAtYzAwMCA3OS40MzMyYWFlLCAyMDI2LzA4LzE3LTEzOjM5OjQzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjcuMTEgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ2MDlBQjMwREQxQzExRjFBQThERjQzMTk1RTA1QzkwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ2MDlBQjMxREQxQzExRjFBQThERjQzMTk1RTA1QzkwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NDYwOUFCMkVERDFDMTFGMUFBOERGNDMxOTVFMDVDOTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDYwOUFCMkZERDFDMTFGMUFBOERGNDMxOTVFMDVDOTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6x0cQkAAAUXUlEQVR42uxd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" alt="CVC Master Franquia DF e MG" width="300" height="100">
-        <span class="vja-chip-w" data-draw="periodo" data-source="diario">—</span>
-      </div>
-      <h1 class="vja-title">Resultados Meta Ads das 10 lojas</h1>
-      <p class="vja-big"><span class="vja-big-n dash-skeleton" data-draw="kpi" data-source="diario" data-campo="leads" data-estado="Total">—</span><span class="vja-big-l">leads no período</span></p>
-      <p class="vja-lede" id="resumo" data-read lang="pt-BR">Cada lead custou <b class="dash-skeleton" data-draw="kpi" data-source="diario" data-campo="cpl" data-estado="Total">—</b>.<span data-resumo="cmp"> Os leads <span data-draw="dir" data-source="diario" data-estado="Total">—</span> <b data-draw="kpi" data-source="diario" data-campo="var_leads" data-estado="Total">—</b> em relação <span data-draw="ndias" data-source="diario">—</span>.</span><span data-resumo="sem" hidden> Não há período anterior com dados para comparar.</span></p>
+<div class="bd-wrap" lang="pt-BR">
+  <p class="bd-load" data-vja-load>Carregando painel…</p>
+
+  <header class="bd-top" id="topo">
+    <div class="bd-brand">
+      <img class="bd-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABkCAYAAAA8AQ3AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDEwLjAtYzAwMCA3OS40MzMyYWFlLCAyMDI2LzA4LzE3LTEzOjM5OjQzICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjcuMTEgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ2MDlBQjMwREQxQzExRjFBQThERjQzMTk1RTA1QzkwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ2MDlBQjMxREQxQzExRjFBQThERjQzMTk1RTA1QzkwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NDYwOUFCMkVERDFDMTFGMUFBOERGNDMxOTVFMDVDOTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDYwOUFCMkZERDFDMTFGMUFBOERGNDMxOTVFMDVDOTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6x0cQkAAAUXUlEQVR42uxd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" alt="CVC Master Franquia DF e MG" width="300" height="100">
+      <h1 class="bd-title">Painel de leads <span>Meta Ads</span></h1>
     </div>
-    <div class="vja-perf" aria-hidden="true"></div>
-    <div class="vja-stub">
-      <div class="vja-stub-i"><span class="vja-stub-l">Impressões</span><span class="vja-stub-v" data-draw="kpi" data-source="diario" data-campo="impressoes" data-estado="Total">—</span></div>
-      <div class="vja-stub-i"><span class="vja-stub-l">Investimento</span><span class="vja-stub-v" data-draw="kpi" data-source="diario" data-campo="investimento" data-estado="Total">—</span></div>
-      <div class="vja-split" id="split" aria-label="Leads por estado">
-        <div class="vja-split-l"><span class="vja-split-k"><i style="background:#ffffff"></i>DF <b data-draw="kpi" data-source="diario" data-campo="leads" data-estado="DF">—</b></span><span class="vja-split-k">MG <b data-draw="kpi" data-source="diario" data-campo="leads" data-estado="MG">—</b><i style="background:#FFC24A"></i></span></div>
-        <div class="vja-split-bar" data-draw="split" data-source="diario"></div>
-      </div>
-    </div>
+    <span class="bd-upd" data-draw="periodo">—</span>
   </header>
 
-  <section class="vja-filter" id="filtro" aria-label="Escolher período">
-    <div class="vja-chips" role="group" aria-label="Período">
+  <section class="bd-period" id="filtro" aria-label="Escolher período">
+    <span class="bd-row-l">Período</span>
+    <div class="bd-tiles" role="group" aria-label="Período">
       <button type="button" class="vja-chipb" data-preset="7" aria-pressed="true">7 dias</button>
       <button type="button" class="vja-chipb" data-preset="14" aria-pressed="false">14 dias</button>
       <button type="button" class="vja-chipb" data-preset="30" aria-pressed="false">30 dias</button>
@@ -183,7 +166,7 @@ body{background:var(--color-bg);color:var(--color-fg);margin:0}
       <button type="button" class="vja-chipb" data-preset="mes" aria-pressed="false">Este mês</button>
       <button type="button" class="vja-chipb" data-preset="mes_ant" aria-pressed="false">Mês passado</button>
       <button type="button" class="vja-chipb" data-preset="tudo" aria-pressed="false">Desde o início</button>
-      <button type="button" class="vja-chipb" data-preset="custom" aria-pressed="false">Escolher datas</button>
+      <button type="button" class="vja-chipb" data-preset="custom" aria-pressed="false">Datas</button>
     </div>
     <div class="vja-custom" id="periodo-custom" hidden>
       <label for="periodo-ini">De</label><input type="date" id="periodo-ini" min="2026-01-01" max="2030-12-31">
@@ -191,65 +174,65 @@ body{background:var(--color-bg);color:var(--color-fg);margin:0}
     </div>
   </section>
 
-  <div class="vja-states">
-    <section class="vja-sec" id="df">
-      <h2 class="vja-st-h"><span class="vja-code df" aria-hidden="true">DF</span><span class="vja-st-t"><span class="vja-st-n">Distrito Federal</span><span class="vja-st-s">6 lojas, contas VJA</span></span></h2>
-      <div class="vja-metrics">
-        <div class="vja-m" id="df-leads"><span class="vja-m-l">Leads</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="leads" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_leads" data-estado="DF">—</span></div>
-        <div class="vja-m" id="df-cpl"><span class="vja-m-l">Custo por lead</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="cpl" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_cpl" data-estado="DF">—</span></div>
-        <div class="vja-m" id="df-impressoes"><span class="vja-m-l">Impressões</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="impressoes" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_impressoes" data-estado="DF">—</span></div>
-        <div class="vja-m" id="df-investimento"><span class="vja-m-l">Investimento</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="investimento" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_investimento" data-estado="DF">—</span></div>
-      </div>
-      <table class="vja-rank" id="df-ranking" data-source="diario" aria-label="Ranking das lojas: Distrito Federal">
-        <thead><tr><th>Lojas por leads</th><th>Leads</th><th>Custo/lead</th><th class="vja-hide-sm">Impressões</th></tr></thead>
+  <section class="bd-board" id="resumo-geral" aria-label="Resumo das 10 lojas">
+    <div class="bd-head">
+      <div class="bd-fig main"><span class="bd-fig-l">Leads, 10 lojas</span><span class="bd-flaps" data-draw="flap" data-campo="leads" data-estado="Total" aria-live="polite">—</span></div>
+      <div class="bd-fig"><span class="bd-fig-l">Custo por lead</span><span class="bd-flaps" data-draw="flap" data-campo="cpl" data-estado="Total">—</span></div>
+      <div class="bd-fig"><span class="bd-fig-l">Investimento</span><span class="bd-flaps" data-draw="flap" data-campo="investimento" data-estado="Total">—</span></div>
+    </div>
+    <p class="bd-lede" id="resumo" data-read lang="pt-BR"><span data-resumo="cmp">Os leads <span data-draw="dir" data-estado="Total">—</span> <b data-draw="kpi" data-campo="var_leads" data-estado="Total">—</b> em relação <span data-draw="ndias">—</span>. Impressões no período: <b data-draw="kpi" data-campo="impressoes" data-estado="Total">—</b>.</span><span data-resumo="sem" hidden>Não há período anterior com dados para comparar.</span></p>
+    <div class="bd-split" aria-label="Leads por estado">
+      <div class="bd-split-l"><span>DF<b data-draw="kpi" data-campo="leads" data-estado="DF">—</b></span><span>MG<b data-draw="kpi" data-campo="leads" data-estado="MG">—</b></span></div>
+      <div class="bd-split-bar" data-draw="split"></div>
+    </div>
+  </section>
+
+  <div class="bd-states">
+    <section class="bd-board" id="df">
+      <h2 class="bd-st-h"><span class="bd-st-n df"><span>DF</span>Distrito Federal</span><span class="bd-st-s">6 lojas, contas VJA</span></h2>
+      <div class="bd-kpis"><div class="bd-k"><span class="bd-k-l">Leads</span><span class="bd-k-v" data-draw="kpi" data-campo="leads" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-campo="var_leads" data-estado="DF">—</span></div><div class="bd-k"><span class="bd-k-l">Custo/lead</span><span class="bd-k-v" data-draw="kpi" data-campo="cpl" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-campo="var_cpl" data-estado="DF">—</span></div><div class="bd-k"><span class="bd-k-l">Impressões</span><span class="bd-k-v" data-draw="kpi" data-campo="impressoes" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-campo="var_impressoes" data-estado="DF">—</span></div><div class="bd-k"><span class="bd-k-l">Investimento</span><span class="bd-k-v" data-draw="kpi" data-campo="investimento" data-estado="DF">—</span><span class="vja-delta" data-draw="delta" data-campo="var_investimento" data-estado="DF">—</span></div></div>
+      <div class="bd-tbl-w"><table class="bd-tbl" aria-label="Lojas: Distrito Federal">
+        <thead><tr><th>Pos</th><th>Loja</th><th>Leads</th><th>Custo/lead</th><th class="bd-hide-sm">Impr.</th><th>Status</th></tr></thead>
         <tbody data-draw="ranking" data-estado="DF"></tbody>
-      </table>
+      </table></div>
     </section>
-    <section class="vja-sec" id="mg">
-      <h2 class="vja-st-h"><span class="vja-code mg" aria-hidden="true">MG</span><span class="vja-st-t"><span class="vja-st-n">Minas Gerais</span><span class="vja-st-s">4 lojas, contas G3989</span></span></h2>
-      <div class="vja-metrics">
-        <div class="vja-m" id="mg-leads"><span class="vja-m-l">Leads</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="leads" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_leads" data-estado="MG">—</span></div>
-        <div class="vja-m" id="mg-cpl"><span class="vja-m-l">Custo por lead</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="cpl" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_cpl" data-estado="MG">—</span></div>
-        <div class="vja-m" id="mg-impressoes"><span class="vja-m-l">Impressões</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="impressoes" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_impressoes" data-estado="MG">—</span></div>
-        <div class="vja-m" id="mg-investimento"><span class="vja-m-l">Investimento</span><span class="vja-m-v dash-skeleton" data-draw="kpi" data-source="diario" data-campo="investimento" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-source="diario" data-campo="var_investimento" data-estado="MG">—</span></div>
-      </div>
-      <table class="vja-rank" id="mg-ranking" data-source="diario" aria-label="Ranking das lojas: Minas Gerais">
-        <thead><tr><th>Lojas por leads</th><th>Leads</th><th>Custo/lead</th><th class="vja-hide-sm">Impressões</th></tr></thead>
+    <section class="bd-board" id="mg">
+      <h2 class="bd-st-h"><span class="bd-st-n mg"><span>MG</span>Minas Gerais</span><span class="bd-st-s">4 lojas, contas G3989</span></h2>
+      <div class="bd-kpis"><div class="bd-k"><span class="bd-k-l">Leads</span><span class="bd-k-v" data-draw="kpi" data-campo="leads" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-campo="var_leads" data-estado="MG">—</span></div><div class="bd-k"><span class="bd-k-l">Custo/lead</span><span class="bd-k-v" data-draw="kpi" data-campo="cpl" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-campo="var_cpl" data-estado="MG">—</span></div><div class="bd-k"><span class="bd-k-l">Impressões</span><span class="bd-k-v" data-draw="kpi" data-campo="impressoes" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-campo="var_impressoes" data-estado="MG">—</span></div><div class="bd-k"><span class="bd-k-l">Investimento</span><span class="bd-k-v" data-draw="kpi" data-campo="investimento" data-estado="MG">—</span><span class="vja-delta" data-draw="delta" data-campo="var_investimento" data-estado="MG">—</span></div></div>
+      <div class="bd-tbl-w"><table class="bd-tbl" aria-label="Lojas: Minas Gerais">
+        <thead><tr><th>Pos</th><th>Loja</th><th>Leads</th><th>Custo/lead</th><th class="bd-hide-sm">Impr.</th><th>Status</th></tr></thead>
         <tbody data-draw="ranking" data-estado="MG"></tbody>
-      </table>
+      </table></div>
     </section>
   </div>
 
-  <section class="vja-sec" id="tendencia">
-    <h2 class="vja-sec-h" data-draw="grafico-titulo" data-source="diario">—</h2>
-    <div class="vja-legend"><span><i class="vja-dot df"></i>Distrito Federal</span><span><i class="vja-dot mg"></i>Minas Gerais</span></div>
-    <div class="vja-chart" id="grafico-leads" data-draw="grafico" data-source="diario"></div>
-    <p class="vja-note">Toque ou passe o mouse no gráfico para ver os valores. Períodos acima de 120 dias aparecem por semana. Dias em zero são dias em que os anúncios não rodaram.</p>
+  <section class="bd-board" id="tendencia">
+    <h2 class="bd-sec-h" data-draw="grafico-titulo">—</h2>
+    <div class="bd-legend"><span><i class="bd-sw df"></i>Distrito Federal</span><span><i class="bd-sw mg"></i>Minas Gerais</span></div>
+    <div class="vja-chart" id="grafico-leads" data-draw="grafico"></div>
+    <p class="bd-note">Toque ou passe o mouse no gráfico para ver os valores. Acima de 120 dias o gráfico mostra semanas. Dias em zero são dias sem anúncio no ar.</p>
   </section>
 
-  <section class="vja-sec" id="cards">
-    <h2 class="vja-sec-h">Cards por loja</h2>
-    <p class="vja-note">Cliques no botão do WhatsApp em cada card do carrossel, no período escolhido. O Meta só informa esse número nos carrosséis simples (mesma imagem no feed e nos stories) e não informa leads por card.</p>
-    <div class="vja-cgrid" id="cards-lista" data-draw="cards-loja" data-source="cards"></div>
-    <details class="vja-semd" id="cards-sem-box"><summary>Lojas sem dados por card</summary><p class="vja-sem" id="cards-sem" data-draw="cards-sem" data-source="cards">—</p></details>
+  <section class="bd-board" id="cards">
+    <h2 class="bd-sec-h">Cards por loja</h2>
+    <p class="bd-note">Cliques no botão do WhatsApp em cada card do carrossel, no período. O Meta só informa esse número nos carrosséis simples (mesma imagem no feed e nos stories) e não informa leads por card.</p>
+    <div class="vja-cgrid" id="cards-lista" data-draw="cards-loja"></div>
+    <details class="bd-semd" id="cards-sem-box"><summary>Lojas sem dados por card</summary><p class="vja-sem" id="cards-sem" data-draw="cards-sem">—</p></details>
   </section>
 
-  <p class="vja-updated" id="vja-updated"></p>
-  <details class="vja-foot" id="definicoes">
+  <p class="bd-upd2" id="vja-updated"></p>
+  <details class="bd-foot" id="definicoes">
     <summary>Como os números são calculados</summary>
     <dl>
       <dt>Leads</dt><dd>Conversas iniciadas no WhatsApp ou no Messenger a partir dos anúncios (métrica "conversas por mensagem iniciadas" do Meta).</dd>
       <dt>Custo por lead</dt><dd>Investimento dividido pelo número de leads. Quanto menor, melhor.</dd>
-      <dt>Impressões</dt><dd>Quantas vezes os anúncios apareceram na tela das pessoas.</dd>
+      <dt>Status</dt><dd>Compara o custo por lead da loja com o custo médio do estado no mesmo período: abaixo da média (verde), na média (cinza, até 10% de diferença) ou acima da média (vermelho).</dd>
       <dt>Período</dt><dd>Escolha nos botões do topo. A comparação é sempre com o mesmo número de dias logo antes do período escolhido.</dd>
       <dt>Histórico</dt><dd>Desde o primeiro dia de cada campanha: fevereiro de 2026 em MG e março de 2026 no DF.</dd>
       <dt>Estados</dt><dd>DF reúne as contas VJA; MG reúne as contas G3989.</dd>
       <dt>Atualização</dt><dd>Os dados são atualizados todo dia útil pela manhã, com os resultados até o dia anterior.</dd>
     </dl>
   </details>
-</div>
-
-
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
@@ -383,17 +366,33 @@ window.vja = (() => {
   dash.onData(sync);
 })();
 </script>
-<script>
-const corEstado = (estado) => (estado === 'MG' ? 'var(--vja-mg)' : 'var(--vja-df)');
+<script>const corEstado = (estado) => (estado === 'MG' ? 'var(--b-amber)' : 'var(--b-ink)');
 const linhaDe = (el) => {
   const A = vja.agg();
   if (A.status !== 'ok' || A.empty) return {A, row: null};
   return {A, row: A.estados[el.dataset.estado] || null};
 };
+const lastFlap = new WeakMap();
+
+dash.draw('flap', (el) => {
+  const {row} = linhaDe(el);
+  const txt = row ? vja.fmt(el.dataset.campo, row[el.dataset.campo]) : '—';
+  if (lastFlap.get(el) === txt) return;
+  const anim = lastFlap.has(el) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  lastFlap.set(el, txt);
+  el.setAttribute('aria-label', txt);
+  el.replaceChildren(...[...txt.replace(/ /g, ' ')].map((ch, i) => {
+    const s = document.createElement('span');
+    s.setAttribute('aria-hidden', 'true');
+    s.className = 'bd-f' + (ch === ' ' || ch === '.' || ch === ',' ? ' sep' : '') + (anim ? ' flip' : '');
+    if (anim) s.style.setProperty('--d', i * 35 + 'ms');
+    s.textContent = ch;
+    return s;
+  }));
+});
 
 dash.draw('kpi', (el) => {
-  const {A, row} = linhaDe(el);
-  if (A.status !== 'loading') el.classList.remove('dash-skeleton');
+  const {row} = linhaDe(el);
   const f = el.dataset.campo;
   const v = row ? row[f] : null;
   el.textContent = row ? (f.startsWith('var_') && el.closest('#resumo') && v != null ? vja.nf0.format(Math.abs(v)) + '%' : vja.fmt(f, v)) : '—';
@@ -411,8 +410,8 @@ dash.draw('delta', (el) => {
   el.classList.remove('good', 'bad');
   const v = row ? row[el.dataset.campo] : null;
   if (v == null) { el.textContent = row ? 'sem período anterior' : '—'; return; }
-  if (Math.abs(v) < 0.5) { el.textContent = 'igual ao período anterior'; return; }
-  el.textContent = vja.pct(v) + ' vs período anterior';
+  if (Math.abs(v) < 0.5) { el.textContent = 'igual ao anterior'; return; }
+  el.textContent = vja.pct(v) + ' vs anterior';
   const menorMelhor = el.dataset.campo === 'var_cpl';
   const neutro = el.dataset.campo === 'var_investimento';
   if (!neutro && Math.abs(v) >= 1) el.classList.add((v > 0) !== menorMelhor ? 'good' : 'bad');
@@ -431,7 +430,7 @@ dash.draw('ndias', (el) => {
 
 dash.draw('periodo', (el) => {
   const A = vja.agg();
-  el.textContent = A.status === 'ok' && A.R ? vja.day(vja.parse(A.R.ini)) + '/' + A.R.ini.slice(2, 4) + ' a ' + vja.day(vja.parse(A.R.fim)) + '/' + A.R.fim.slice(2, 4) : '—';
+  el.textContent = A.status === 'ok' && A.R ? vja.dayY(vja.parse(A.R.ini)) + ' a ' + vja.dayY(vja.parse(A.R.fim)) : '—';
 });
 
 dash.draw('split', (el) => {
@@ -448,30 +447,28 @@ dash.draw('ranking', (tb) => {
   const A = vja.agg();
   if (A.status !== 'ok' || A.empty) { tb.replaceChildren(); return; }
   const estado = tb.dataset.estado;
+  const media = A.estados[estado].cpl;
   const rows = A.lojas.filter((r) => r.estado === estado);
-  const maxLeads = d3.max(rows, (r) => r.leads) || 1;
-  const comCpl = rows.filter((r) => r.cpl != null);
-  const melhor = comCpl.length > 1 ? d3.least(comCpl, (r) => r.cpl) : null;
-  const pior = comCpl.length > 1 ? d3.greatest(comCpl, (r) => r.cpl) : null;
   tb.replaceChildren(...rows.map((r, i) => {
     const tr = document.createElement('tr');
-    const tdLoja = document.createElement('td');
-    const who = document.createElement('div'); who.className = 'vja-who';
-    const pos = document.createElement('span'); pos.className = 'vja-pos'; pos.textContent = String(i + 1);
-    const nome = document.createElement('span'); nome.className = 'vja-name'; nome.textContent = vja.curta(r.loja);
-    if (r === melhor || r === pior) {
-      const t = document.createElement('span');
-      t.className = 'vja-tag ' + (r === melhor ? 'good' : 'bad');
-      t.textContent = r === melhor ? 'menor custo' : 'maior custo';
-      nome.append(t);
+    const m = String(r.loja).match(/^(VJA|G3989)\s+(\d+)\s+-\s+(.*)$/);
+    const td = (txt, cls) => { const c = document.createElement('td'); if (txt != null) c.textContent = txt; if (cls) c.className = cls; return c; };
+    const gate = td(String(i + 1).padStart(2, '0'), 'gate');
+    const dest = td(null, 'dest');
+    dest.append(document.createTextNode(m ? m[3] : r.loja));
+    const sm = document.createElement('small'); sm.textContent = 'Loja ' + (m ? m[2] : ''); dest.append(sm);
+    const st = td(null);
+    const b = document.createElement('span');
+    if (r.cpl == null || media == null) { b.className = 'bd-stat mid'; b.textContent = 'Sem leads'; }
+    else {
+      const d = (r.cpl - media) / media;
+      b.className = 'bd-stat ' + (d <= -0.1 ? 'good' : d >= 0.1 ? 'bad' : 'mid');
+      const lg = document.createElement('span'); lg.className = 'bd-long'; lg.textContent = d <= -0.1 ? 'Abaixo da média' : d >= 0.1 ? 'Acima da média' : 'Na média';
+      const sh = document.createElement('span'); sh.className = 'bd-short'; sh.textContent = d <= -0.1 ? 'Abaixo' : d >= 0.1 ? 'Acima' : 'Média';
+      b.append(lg, sh);
     }
-    const meter = document.createElement('span'); meter.className = 'vja-meter';
-    const fill = document.createElement('i'); fill.style.width = (r.leads / maxLeads) * 100 + '%'; fill.style.background = corEstado(estado);
-    meter.append(fill);
-    who.append(pos, nome, meter);
-    tdLoja.append(who);
-    const td = (txt, cls) => { const c = document.createElement('td'); c.textContent = txt; if (cls) c.className = cls; return c; };
-    tr.append(tdLoja, td(vja.nf0.format(r.leads)), td(r.cpl == null ? '—' : vja.brl.format(r.cpl)), td(vja.nf0.format(r.impressoes), 'vja-hide-sm'));
+    st.append(b);
+    tr.append(gate, dest, td(vja.nf0.format(r.leads)), td(r.cpl == null ? '—' : vja.brl.format(r.cpl)), td(vja.nf0.format(r.impressoes), 'bd-hide-sm'), st);
     return tr;
   }));
 });
@@ -484,11 +481,7 @@ dash.draw('grafico-titulo', (el) => {
 dash.draw('grafico', (el) => {
   const s = dash.data('diario');
   const A = vja.agg();
-  if (s.status !== 'ok' || A.status !== 'ok' || A.empty) {
-    el.replaceChildren();
-    if (s.status === 'error') { const p = document.createElement('p'); p.className = 'vja-note'; p.textContent = 'Não foi possível carregar o gráfico.'; el.append(p); }
-    return;
-  }
+  if (s.status !== 'ok' || A.status !== 'ok' || A.empty) { el.replaceChildren(); return; }
   const R = A.R, semanal = R.dias > 120;
   const bucket = (d) => {
     if (!semanal) return d;
@@ -501,7 +494,7 @@ dash.draw('grafico', (el) => {
   for (let t = vja.parse(R.ini).getTime(); t <= vja.parse(R.fim).getTime(); t += vja.D) { const k = bucket(vja.iso(new Date(t))); if (keys[keys.length - 1] !== k) keys.push(k); }
   const series = ['DF', 'MG'];
   const rows = keys.flatMap((k) => series.map((st) => ({data: k, estado: st, leads: soma.get(k)?.get(st) ?? 0, t: vja.parse(k)})));
-  const W = Math.max(280, el.clientWidth || 600), H = 240, top = 10, bottom = 28, mr = 14;
+  const W = Math.max(280, el.clientWidth || 600), H = 260, top = 10, bottom = 30, mr = 14;
   el.replaceChildren();
   const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
     .attr('role', 'img').attr('aria-label', (semanal ? 'Leads por semana' : 'Leads por dia') + ' no Distrito Federal e em Minas Gerais');
@@ -514,22 +507,22 @@ dash.draw('grafico', (el) => {
   if (+ext[0] === +ext[1]) ext[1] = new Date(+ext[1] + vja.D);
   const x = d3.scaleUtc().domain(ext).range([ml, W - mr]);
   svg.append('g').selectAll('line').data(yTicks).join('line')
-    .attr('x1', ml).attr('x2', W - mr).attr('y1', (d) => y(d)).attr('y2', (d) => y(d)).style('stroke', 'var(--cds-chart-grid)');
+    .attr('x1', ml).attr('x2', W - mr).attr('y1', (d) => y(d)).attr('y2', (d) => y(d)).style('stroke', 'var(--b-line)');
   svg.append('g').attr('class', 'vja-axis').selectAll('text').data(yTicks).join('text')
     .attr('x', ml - 8).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => vja.nf0.format(d));
   const xTicks = x.ticks(Math.max(2, Math.min(6, Math.floor((W - ml) / 90))));
-  const xf = R.dias > 300 ? d3.utcFormat('%b/%y') : vja.day;
+  const xf = R.dias > 300 ? d3.utcFormat('%m/%y') : vja.day;
   svg.append('g').attr('class', 'vja-axis').selectAll('text').data(xTicks).join('text')
     .attr('x', (d) => x(d)).attr('y', H - 8).attr('text-anchor', (d) => (x(d) > W - mr - 24 ? 'end' : x(d) < ml + 24 ? 'start' : 'middle')).text((d) => xf(d));
   const line = d3.line().x((r) => x(r.t)).y((r) => y(r.leads));
   series.forEach((st) => {
     const pts = rows.filter((r) => r.estado === st);
-    svg.append('path').datum(pts).attr('fill', 'none').attr('stroke-width', 2.5).attr('stroke-linejoin', 'round').style('stroke', corEstado(st)).attr('d', line);
+    svg.append('path').datum(pts).attr('fill', 'none').attr('stroke-width', 2.25).style('stroke', corEstado(st)).attr('d', line);
     const last = pts[pts.length - 1];
-    if (last) svg.append('circle').attr('cx', x(last.t)).attr('cy', y(last.leads)).attr('r', 4).style('fill', corEstado(st));
+    if (last) svg.append('rect').attr('x', x(last.t) - 4).attr('y', y(last.leads) - 4).attr('width', 8).attr('height', 8).style('fill', corEstado(st));
   });
-  const rule = svg.append('line').attr('y1', top).attr('y2', H - bottom).style('stroke', 'var(--cds-chart-reference)').style('opacity', 0);
-  const dots = series.map((st) => svg.append('circle').attr('r', 4.5).style('fill', corEstado(st)).style('opacity', 0));
+  const rule = svg.append('line').attr('y1', top).attr('y2', H - bottom).style('stroke', 'var(--b-amber)').style('stroke-dasharray', '3 3').style('opacity', 0);
+  const dots = series.map((st) => svg.append('rect').attr('width', 9).attr('height', 9).style('fill', corEstado(st)).style('opacity', 0));
   const tip = document.createElement('div'); tip.className = 'vja-tip'; tip.style.opacity = '0'; el.append(tip);
   const datasT = keys.map(vja.parse);
   const show = (ev) => {
@@ -539,12 +532,12 @@ dash.draw('grafico', (el) => {
     const cx = x(datasT[i]);
     rule.attr('x1', cx).attr('x2', cx).style('opacity', 1);
     const vals = series.map((st) => rows.find((r) => r.data === d && r.estado === st)?.leads ?? 0);
-    dots.forEach((c, k) => c.attr('cx', cx).attr('cy', y(vals[k])).style('opacity', 1));
+    dots.forEach((c, k) => c.attr('x', cx - 4.5).attr('y', y(vals[k]) - 4.5).style('opacity', 1));
     const head = document.createElement('span'); head.className = 'vja-tip-d'; head.textContent = (semanal ? 'Semana de ' : '') + vja.dayY(datasT[i]);
     const linhas = series.map((st, k) => {
       const r = document.createElement('span'); r.className = 'vja-tip-r';
-      const sw = document.createElement('i'); sw.className = 'vja-dot ' + st.toLowerCase();
-      r.append(sw, document.createTextNode(st + ': ' + vja.nf0.format(vals[k]) + ' leads'));
+      const sw = document.createElement('i'); sw.className = 'bd-sw ' + st.toLowerCase();
+      r.append(sw, document.createTextNode(st + ' ' + vja.nf0.format(vals[k]) + ' leads'));
       return r;
     });
     tip.replaceChildren(head, ...linhas);
@@ -575,16 +568,14 @@ dash.draw('cards-loja', (el) => {
   el.replaceChildren(...lista.map(([loja, cs]) => {
     const estado = estadoDe.get(loja) || (loja.startsWith('VJA') ? 'DF' : 'MG');
     const box = document.createElement('div'); box.className = 'vja-cl';
-    const h = document.createElement('h3'); h.className = 'vja-cl-h';
-    const dot = document.createElement('i'); dot.className = 'vja-dot ' + estado.toLowerCase();
-    h.append(dot, document.createTextNode(vja.curta(loja)));
+    const h = document.createElement('h3'); h.className = 'vja-cl-h'; h.textContent = vja.curta(loja) + ' ' + estado;
     const max = d3.max(cs, (r) => r[1]) || 1;
     const bars = document.createElement('div'); bars.className = 'vja-bars';
     bars.append(...cs.map(([card, v]) => {
       const row = document.createElement('div'); row.className = 'vja-bar';
       const n = document.createElement('span'); n.className = 'vja-bar-n'; n.textContent = card;
       const track = document.createElement('div'); track.className = 'vja-bar-t';
-      const fill = document.createElement('div'); fill.className = 'vja-bar-f'; fill.style.width = (v / max) * 100 + '%'; fill.style.background = corEstado(estado);
+      const fill = document.createElement('div'); fill.className = 'vja-bar-f'; fill.style.width = (v / max) * 100 + '%'; fill.style.background = 'var(--b-amber)';
       track.append(fill);
       const val = document.createElement('span'); val.className = 'vja-bar-v'; val.textContent = vja.nf0.format(v);
       row.append(n, track, val);
